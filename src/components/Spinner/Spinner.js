@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import spinner from "./spinner.png";
-import wheel from "./wheel_v2.png";
+import wheel from "../../assets/img/wheel_v2.png";
 import './spinner.scss'
 import Items from '../../constants/Items';
 import ReactTimeout from 'react-timeout'
