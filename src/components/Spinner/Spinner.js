@@ -3,50 +3,24 @@ import { Link } from 'react-router-dom';
 import spinner from "./spinner.png";
 import './spinner.scss'
 import Items from '../../constants/Items';
-
+import ReactTimeout from 'react-timeout'
 
 class Spinner extends Component {
-    _isMounted = false;
-    timer = null;
     state = {
         spin: false,
         disabled: true
     };
+
     componentDidMount() {
-        this._isMounted = true;
-        this.timer = setTimeout(() => {
-            if (this._isMounted) {
-                this.start()
-            }
-        }, 5000);
-
+        this.props.setTimeout(this.start, 5000)
     }
-    componentWillUnmount() {
-        this._isMounted = false;
-        clearTimeout(this.timer);
-
-    }
-
-    autoRun = () => {
-        const timer = setTimeout(() => {
-            this.start()
-        }, 3000);
-        return () => clearTimeout(timer);
-    };
-
-    check = () => {
-        if (this.state.spin === true) {
-
-        }
-    };
 
     start = () => {
         this.setState({
             spin: true,
             disabled: false
         });
-
-        return setTimeout(() => {
+        return this.props.setTimeout( () => {
             const result = this.getResult();
             this.sendResult(result);
             }, 10000
@@ -107,4 +81,4 @@ class Spinner extends Component {
     }
 }
 
-export default Spinner;
+export default ReactTimeout(Spinner);
