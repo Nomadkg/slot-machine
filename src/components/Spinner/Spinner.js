@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import spinner from "./spinner.png";
+import wheel from "./wheel_v2.png";
 import './spinner.scss'
 import Items from '../../constants/Items';
 import ReactTimeout from 'react-timeout'
@@ -52,13 +53,13 @@ class Spinner extends Component {
         return (
             <div className="spinner-container">
                 <span className="spinner-wrapper">
-                    <img src={spinner} className={spin ? 'first_spin' : ''} alt="" width="192" height="192"/>
+                    <img src={wheel} className={spin ? 'first_spin' : ''} alt="" width="100%" height="80%"/>
                 </span>
                 <span className="spinner-wrapper">
-                    <img src={spinner} className={spin ? 'second_spin' : ''} alt="" width="192" height="192"/>
+                    <img src={wheel} className={spin ? 'second_spin' : ''} alt="" width="100%" height="80%"/>
                 </span>
                 <span className="spinner-wrapper">
-                    <img src={spinner} className={spin ? 'third_spin' : ''} alt="" width="192" height="192"/>
+                    <img src={wheel} className={spin ? 'third_spin' : ''} alt="" width="100%" height="80%"/>
                 </span>
             </div>
         )
@@ -68,14 +69,14 @@ class Spinner extends Component {
         const { spin } = this.state;
         return (
             <div className="control">
-                <button ref='button' disabled={!this.state.disabled} onClick={this.start}>START</button>
-                <button ref='button' disabled={!this.state.spin} onClick={this.stop}>
-                    <Link to="/result">STOP</Link>
-                </button>
-                <br/>
-                <br/>
-                <br/>
-                {this.renderSpinner(spin)}
+                <div className="box">
+                    <h1 className="slot-machine-title">Slot Machine</h1>
+                    {this.renderSpinner(spin)}
+                    <button ref='button' disabled={!this.state.disabled} onClick={this.start}>START</button>
+                    <button ref='button' disabled={!this.state.spin} onClick={this.stop}>
+                        <Link to="/result">STOP</Link>
+                    </button>
+                </div>
             </div>
         )
     }
