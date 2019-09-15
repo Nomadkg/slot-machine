@@ -53,13 +53,13 @@ class Spinner extends Component {
         return (
             <div className="spinner-container">
                 <span className="spinner-wrapper">
-                    <img src={wheel} className={spin ? 'first_spin' : ''} alt="" width="100%" height="80%"/>
+                    <img src={wheel} className={spin ? 'first_spin' : ''} alt="" width="90%" height="80%"/>
                 </span>
                 <span className="spinner-wrapper">
-                    <img src={wheel} className={spin ? 'second_spin' : ''} alt="" width="100%" height="80%"/>
+                    <img src={wheel} className={spin ? 'second_spin' : ''} alt="" width="90%" height="80%"/>
                 </span>
                 <span className="spinner-wrapper">
-                    <img src={wheel} className={spin ? 'third_spin' : ''} alt="" width="100%" height="80%"/>
+                    <img src={wheel} className={spin ? 'third_spin' : ''} alt="" width="90%" height="80%"/>
                 </span>
             </div>
         )
