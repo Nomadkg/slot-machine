@@ -65,14 +65,14 @@ class Spinner extends Component {
     };
 
     render() {
-        const { spin } = this.state;
+        const { spin, disabled } = this.state;
         return (
             <div className="control">
                 <div className="box">
                     <h1 className="slot-machine-title">Slot Machine</h1>
                     {this.renderSpinner(spin)}
-                    <button ref='button' disabled={!this.state.disabled} onClick={this.start}>START</button>
-                    <button ref='button' disabled={!this.state.spin} onClick={this.stop}>
+                    <button ref='button' disabled={!disabled} onClick={this.start}>START</button>
+                    <button ref='button' disabled={!spin} onClick={this.stop}>
                         <Link to="/result">STOP</Link>
                     </button>
                 </div>
