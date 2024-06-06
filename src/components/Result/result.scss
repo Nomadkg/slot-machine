@@ -1,3 +1,8 @@
- span {
-   font-size: 32px;
- }
+span {
+  font-size: 32px;
+}
+
+.wheels-container {
+  display: flex;
+  justify-content: space-around;
+}
