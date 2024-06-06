@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import wheel from "../../assets/img/wheel_v2.png";
-import './spinner.scss'
-import Items from '../../constants/Items';
 import ReactTimeout from 'react-timeout'
+import { getRandomItem, startTimer } from '../../utils';
+import { START, STOP, SLOT_MACHINE } from '../../constants';
+import SpinnerImage from '../SpinnerImage';
+import './spinner.scss'
 
 class Spinner extends Component {
     state = {
@@ -12,7 +13,7 @@ class Spinner extends Component {
     };
 
     componentDidMount() {
-        this.props.setTimeout(this.start, 5000)
+        startTimer(this.start, 5000)
     }
 
     start = () => {
@@ -21,23 +22,21 @@ class Spinner extends Component {
             disabled: false
         });
         return this.props.setTimeout( () => {
-            const result = this.getResult();
-            this.sendResult(result);
+            this.sendResult(this.getResult());
             }, 10000
         )
     };
 
     getResult = () => {
         return {
-            first_wheel: Items[Math.floor(Math.random() * Items.length)],
-            second_wheel: Items[Math.floor(Math.random() * Items.length)],
-            third_wheel: Items[Math.floor(Math.random() * Items.length)],
+            firstWheel: getRandomItem(),
+            secondWheel: getRandomItem(),
+            thirdWheel: getRandomItem(),
         }
     };
 
     stop = () => {
-        const result = this.getResult();
-        this.sendResult(result);
+        this.sendResult(this.getResult());
         return this.setState({spin: false});
     };
 
@@ -48,32 +47,16 @@ class Spinner extends Component {
         history.push(result);
     }
 
-    renderSpinner = (spin) => {
-        return (
-            <div className="spinner-container">
-                <span className="spinner-wrapper">
-                    <img src={wheel} className={spin ? 'first_spin' : ''} alt="" width="90%" height="80%"/>
-                </span>
-                <span className="spinner-wrapper">
-                    <img src={wheel} className={spin ? 'second_spin' : ''} alt="" width="90%" height="80%"/>
-                </span>
-                <span className="spinner-wrapper">
-                    <img src={wheel} className={spin ? 'third_spin' : ''} alt="" width="90%" height="80%"/>
-                </span>
-            </div>
-        )
-    };
-
     render() {
         const { spin, disabled } = this.state;
         return (
             <div className="control">
                 <div className="box">
-                    <h1 className="slot-machine-title">Slot Machine</h1>
-                    {this.renderSpinner(spin)}
-                    <button ref='button' disabled={!disabled} onClick={this.start}>START</button>
+                    <h1 className="slot-machine-title">{SLOT_MACHINE}</h1>
+                    <SpinnerImage spin={spin} />
+                    <button ref='button' disabled={!disabled} onClick={this.start}>{START}</button>
                     <button ref='button' disabled={!spin} onClick={this.stop}>
-                        <Link to="/result">STOP</Link>
+                        <Link to="/result">{STOP}</Link>
                     </button>
                 </div>
             </div>
