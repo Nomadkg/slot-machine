@@ -1,0 +1,18 @@
+.wheels-container {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 50px;
+    background-color: #D5DEE5;
+    border: 3px solid #0B0033;
+    border-radius: 5px;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.wheel-wrapper {
+    height: 180px;
+    position: relative;
+    border: 3px solid #0B0033;
+    border-radius: 5px;
+    overflow: hidden;
+}

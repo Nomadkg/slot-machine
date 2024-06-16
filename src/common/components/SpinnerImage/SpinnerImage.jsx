@@ -1,5 +1,4 @@
-import React from 'react';
-import wheel from "../../assets/img/wheel_v2.png";
+import wheel from "../../assets/images/wheel_v2.png";
 import { spins } from '../../constants';
 
 export default function SpinnerImage({ spin }) {
@@ -12,4 +11,4 @@ export default function SpinnerImage({ spin }) {
             ))}
         </div>
     );
-};
+}
