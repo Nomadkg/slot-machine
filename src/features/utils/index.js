@@ -10,6 +10,6 @@ export function startTimer(callback, milliseconds) {
     setTimeout(callback, milliseconds);
 }
 
-export function getImageURL(name) {
-    return new URL(`../../common/assets/images/${name}`, import.meta.url).href
+export function getImages(name, path) {
+    return new URL(`${path}${name}`, import.meta.url).href
 }

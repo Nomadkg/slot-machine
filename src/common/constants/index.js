@@ -13,4 +13,4 @@ export const START = 'START';
 export const STOP = 'STOP';
 export const WELCOME = 'Welcome!';
 export const SLOT_MACHINE = 'Slot Machine';
-
+export const IMAGE_PATH = '../../common/assets/images/';
