@@ -6,6 +6,10 @@ In the project directory, you can run:
 ### `npm i` - install required libs
 ### `npm start` - run app
 
+## Start your game
+### Press Start - run game
+### Press Stop - get result 
+
 Nodejs v18.12.0
 
 The app runs in the development mode.<br>

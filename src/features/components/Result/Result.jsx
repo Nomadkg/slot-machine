@@ -2,29 +2,46 @@ import { Link, useLocation } from 'react-router-dom';
 import WheelImage from '../../../common/components/WheelImage';
 import { SORRY_YOU_LOSE, YOU_WIN_HUNDRED_USD, YOU_WIN_TEN_USD, YOU_WIN_TWENTY_USD, PLAY_AGAIN } from '../../../common/constants';
 
-const checkWheels = ({ firstWheel, secondWheel, thirdWheel }) => {
-    const conditions = {
-        [firstWheel === undefined && secondWheel === undefined && thirdWheel === undefined]: null,
-        [firstWheel === secondWheel && firstWheel === thirdWheel]: YOU_WIN_HUNDRED_USD,
-        [firstWheel !== secondWheel && secondWheel === thirdWheel]: YOU_WIN_TWENTY_USD,
-        [firstWheel === secondWheel && secondWheel !== thirdWheel]: YOU_WIN_TWENTY_USD,
-        [firstWheel !== secondWheel && firstWheel === thirdWheel]: YOU_WIN_TEN_USD,
-        [firstWheel !== secondWheel && firstWheel !== thirdWheel && secondWheel !== thirdWheel]: SORRY_YOU_LOSE
-    };
+function checkWheels({ firstWheel, secondWheel, thirdWheel }) {
+    let msg;
 
-    const matchedCondition = Object.keys(conditions).find(condition => condition);
+    if (firstWheel === undefined && secondWheel === undefined && thirdWheel === undefined) {
+        return null
+    }
 
-    const message = conditions[matchedCondition];
-    
+    if (firstWheel !== secondWheel && firstWheel !== thirdWheel && secondWheel !== thirdWheel) {
+        msg = SORRY_YOU_LOSE
+    }
+
+    if (firstWheel === secondWheel && firstWheel === thirdWheel) {
+        msg = YOU_WIN_HUNDRED_USD
+    }
+
+    if (firstWheel !== secondWheel && firstWheel === thirdWheel) {
+        msg = YOU_WIN_TEN_USD
+    }
+
+    if (firstWheel === secondWheel && secondWheel !== thirdWheel) {
+        msg = YOU_WIN_TWENTY_USD
+    }
+
+    if (firstWheel !== secondWheel && secondWheel === thirdWheel) {
+        msg = YOU_WIN_TWENTY_USD
+    }
+
     return (
         <>
-            {message && <h1>{message}</h1>}
-            <WheelImage wheels={[firstWheel, secondWheel, thirdWheel]} />
+            {msg && <>
+                    <h1>{msg}</h1>
+                    <WheelImage wheels={[firstWheel, secondWheel, thirdWheel]} />
+                </>
+            }
+            
         </>
     );
-};
+}
 
-const Result = ({ path }) => {
+export default function Result({ path }) {
     const location = useLocation();
 
     return (
@@ -37,6 +54,4 @@ const Result = ({ path }) => {
             </p>
         </div>
     );
-};
-
-export default Result;
+}
