@@ -6,13 +6,15 @@ import SpinnerImage from '../../../common/components/SpinnerImage';
 import './style.scss'
 
 // Function to get random wheels
-const getWheels = () => ({
-    firstWheel: getRandomItem(),
-    secondWheel: getRandomItem(),
-    thirdWheel: getRandomItem(),
-});
+function getWheels() {
+    return {
+        firstWheel: getRandomItem(),
+        secondWheel: getRandomItem(),
+        thirdWheel: getRandomItem(),
+    }
+}
 
-const Spinner = () => {
+export default function Spinner() {
     const [spin, setSpin] = useState(false);
     const [disabled, setDisabled] = useState(true);
     const navigate = useNavigate();
@@ -22,7 +24,7 @@ const Spinner = () => {
     const timeoutRef = useRef(null);
 
     useEffect(() => {
-        timerRef.current = startTimer(startSpin, 5000);
+        timerRef.current = startTimer(startSpin, 5); // starts after 5 seconds
 
         return () => {
             if (timerRef.current) clearTimeout(timerRef.current);
@@ -37,7 +39,7 @@ const Spinner = () => {
         setDisabled(false);
         timeoutRef.current = startTimer(() => {
             redirectToResult(getWheels());
-        }, 10000);
+        }, 10); // ends after 10 seconds
     };
 
     const stopSpin = () => {
@@ -62,7 +64,4 @@ const Spinner = () => {
             </div>
         </div>
     );
-};
-
-export default Spinner;
-
+}

@@ -6,8 +6,8 @@ export const getWheels = (data) => {
     return Object.values(data).filter(value => value && value.endsWith('.png'));
 };
 
-export function startTimer(callback, milliseconds) {
-    setTimeout(callback, milliseconds);
+export function startTimer(callback, seconds) {
+    return setTimeout(callback, seconds * 1000);
 }
 
 export function getImages(name, path) {
