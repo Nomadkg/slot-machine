@@ -1,4 +1,4 @@
-export const items = ['monkey.png', 'banana.png', 'orange.png', 'strawberry.png'];
+export const wheelNames = ['monkey.png', 'banana.png', 'orange.png', 'strawberry.png'];
 export const spins = ['first_spin', 'second_spin', 'third_spin'];
 export const wheels = ['firstWheel', 'secondWheel', 'thirdWheel'];
 

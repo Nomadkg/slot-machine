@@ -1,10 +1,14 @@
-import { items } from '../../common/constants';
+import { wheelNames } from '../../common/constants';
 
-export const getRandomItem = () => items[Math.floor(Math.random() * items.length)];
+const getRandomWheel = () => wheelNames[Math.floor(Math.random() * wheelNames.length)];
 
-export const getWheels = (data) => {
-    return Object.values(data).filter(value => value && value.endsWith('.png'));
-};
+export function getWheels() {
+    return {
+        firstWheel: getRandomWheel(),
+        secondWheel: getRandomWheel(),
+        thirdWheel: getRandomWheel(),
+    }
+}
 
 export function startTimer(callback, seconds) {
     return setTimeout(callback, seconds * 1000);
