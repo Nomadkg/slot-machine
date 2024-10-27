@@ -1,18 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { getRandomItem, startTimer } from '../../utils';
+import { getWheels, startTimer } from '../../utils';
 import { START, STOP, SLOT_MACHINE } from '../../../common/constants';
 import SpinnerImage from '../../../common/components/SpinnerImage';
 import './style.scss'
-
-// Function to get random wheels
-function getWheels() {
-    return {
-        firstWheel: getRandomItem(),
-        secondWheel: getRandomItem(),
-        thirdWheel: getRandomItem(),
-    }
-}
 
 export default function Spinner() {
     const [spin, setSpin] = useState(false);
