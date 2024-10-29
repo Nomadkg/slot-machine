@@ -1,12 +1,12 @@
-import { wheelNames } from '../../common/constants';
+import { reelNames } from '../../common/constants';
 
-const getRandomWheel = () => wheelNames[Math.floor(Math.random() * wheelNames.length)];
+const getRandomReel = () => reelNames[Math.floor(Math.random() * reelNames.length)];
 
-export function getWheels() {
+export function getReels() {
     return {
-        firstWheel: getRandomWheel(),
-        secondWheel: getRandomWheel(),
-        thirdWheel: getRandomWheel(),
+        firstReel: getRandomReel(),
+        secondReel: getRandomReel(),
+        thirdReel: getRandomReel(),
     }
 }
 

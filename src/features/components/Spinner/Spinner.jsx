@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { getWheels, startTimer } from '../../utils';
+import { getReels, startTimer } from '../../utils';
 import { START, STOP, SLOT_MACHINE } from '../../../common/constants';
 import SpinnerImage from '../../../common/components/SpinnerImage';
 import './style.scss'
@@ -29,12 +29,12 @@ export default function Spinner() {
         setSpin(true);
         setDisabled(false);
         timeoutRef.current = startTimer(() => {
-            redirectToResult(getWheels());
+            redirectToResult(getReels());
         }, 10); // ends after 10 seconds
     };
 
     const stopSpin = () => {
-        redirectToResult(getWheels());
+        redirectToResult(getReels());
         setSpin(false);
         setDisabled(true);
     };
