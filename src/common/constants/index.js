@@ -1,6 +1,6 @@
-export const wheelNames = ['monkey.png', 'banana.png', 'orange.png', 'strawberry.png'];
+export const reelNames = ['monkey.png', 'banana.png', 'orange.png', 'strawberry.png'];
 export const spins = ['first_spin', 'second_spin', 'third_spin'];
-export const wheels = ['firstWheel', 'secondWheel', 'thirdWheel'];
+export const reels = ['firstReel', 'secondReel', 'thirdReel'];
 
 export const YOU_WIN_TWENTY_USD = 'You win $20!!!';
 export const YOU_WIN_TEN_USD = 'You win $10!!!';
