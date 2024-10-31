@@ -1,6 +1,6 @@
 import { IMAGE_CONFIG, IMAGE_PATH } from '../../constants';
 import { getImages } from '../../../features/utils';
-import './style.scss'
+import './style.css'
 
 export default function ReelImage({ reels }) {
     return (

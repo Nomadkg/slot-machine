@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Spinner from '../features/components/Spinner';
 import Home from '../common/components/Home';
 import Result from '../features/components/Result';
-import './App.scss'
+import './style.css'
 
 export default function App() {
   return (
