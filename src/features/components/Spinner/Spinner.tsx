@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { getReels, startTimer } from '../../utils';
-import { START, STOP, SLOT_MACHINE, RESULT_PATH } from '../../../common/constants';
 import SpinnerImage from '../../../common/components/SpinnerImage';
+import { getReels, startTimer } from '../../utils';
+import { Reels } from '../../../common/types';;
+import { START, STOP, SLOT_MACHINE, RESULT_PATH } from '../../../common/constants';
 import './style.css'
 
 export default function Spinner() {
@@ -39,7 +40,7 @@ export default function Spinner() {
         setDisabled(true);
     };
 
-    const redirectToResult = (result: unknown) => {
+    const redirectToResult = (result: Reels) => {
         navigate(RESULT_PATH, { state: result });
     };
 
