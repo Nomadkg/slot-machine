@@ -6,7 +6,7 @@ In the project directory, you can run:
 ### `npm i` - install required libs
 ### `npm start` - run app
 
-Nodejs v18.12.0
+Nodejs v18.20.4
 
 The app runs in development mode.<br>
 Open [http://localhost:5173/](http://localhost:5173/) to view it in the browser.
@@ -15,7 +15,7 @@ The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
 
-# React + TypeScript + Vite
+# React + Vite + TypeScript 
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
