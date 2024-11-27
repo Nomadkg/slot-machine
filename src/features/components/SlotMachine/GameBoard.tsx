@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import SpinnerImage from '../../../common/components/SpinnerImage';
 import { getReels, startTimer } from '../../utils';
 import { Reels } from '../../../common/types';
-import { START, STOP, SLOT_MACHINE, RESULT_PATH } from '../../../common/constants';
+import { START, STOP, SLOT_MACHINE, RESULT_PATH, START_TIME, END_TIME } from '../../../common/constants';
 import './style.css'
 
 export default function GameBoard() {
@@ -16,7 +16,7 @@ export default function GameBoard() {
     const timeoutRef = useRef(0);
 
     useEffect(() => {
-        timerRef.current = startTimer(runGame, 5); // starts after 5 seconds
+        timerRef.current = startTimer(runGame, START_TIME); // starts after 5 seconds
 
         return () => {
             if (timerRef.current) clearTimeout(timerRef.current);
@@ -32,7 +32,7 @@ export default function GameBoard() {
         clearTimeout(timerRef.current);
         timeoutRef.current = startTimer(() => {
             redirectToResult(getReels());
-        }, 10); // ends after 10 seconds
+        }, END_TIME); // ends after 10 seconds
     };
 
     const stopGame = () => {

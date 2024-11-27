@@ -18,3 +18,6 @@ export const STOP = 'STOP';
 export const WELCOME = 'Welcome!';
 export const SLOT_MACHINE = 'Slot Machine';
 export const IMAGE_PATH = '../../common/assets/images/';
+export const START_TIME = 5;
+export const END_TIME = 10;
+
